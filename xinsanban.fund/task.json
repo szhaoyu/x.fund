@@ -1,0 +1,158 @@
+[
+  {
+    "name": "好买基金新三板",
+    "id": "howbuy",
+    "url": "http://simu.howbuy.com/xinsanban.htm",
+    "keys": [
+      {
+        "id": "name"
+      }
+    ],
+    "freeze": [
+      {
+        "id": "status",
+        "value": "已结束"
+      }
+    ],
+    "extractor": {
+      "id": "recommend",
+      "type": "css",
+      "pattern": ".recommend tr:gt(0)",
+      "data": "array",
+      "children": [
+        {
+          "id": "key",
+          "type": "regex",
+          "pattern": "(?<=<a href=\")http://www.howbuy.com/[^\"]+",
+          "data": "field",
+          "fields": [
+            {
+              "name": "url",
+              "type": "string",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "tds",
+          "type": "regex",
+          "pattern": "<td[^>]+>.*?</td>",
+          "data": "field",
+          "fields": [
+            {
+              "name": "name",
+              "alias": "基金简称",
+              "type": "string",
+              "index": 0
+            },
+            {
+              "name": "org",
+              "alias": "管理机构",
+              "type": "string",
+              "index": 1
+            },
+            {
+              "name": "invest",
+              "alias": "投资标的",
+              "type": "string",
+              "index": 2
+            },
+            {
+              "name": "term",
+              "alias": "存续期限",
+              "type": "string",
+              "index": 3
+            },
+            {
+              "name": "profit",
+              "alias": "收益情况",
+              "type": "string",
+              "index": 4
+            },
+            {
+              "name": "status",
+              "alias": "募集状态",
+              "type": "string",
+              "index": 5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "清科新三板基金",
+    "id": "pedata",
+    "url": "http://www.pedata.cn/neeq_do/neeq",
+    "keys": [
+      {
+        "id": "name"
+      }
+    ],
+    "freeze": [
+      {
+        "id": "status",
+        "value": "已募完"
+      }
+    ],
+    "extractor": {
+      "id": "recommend",
+      "type": "css",
+      "pattern": "#pedetamain > div:nth-child(4) > div > div.internet_all > div:nth-child(21) > table tr:gt(0)",
+      "data": "array",
+      "children": [
+        {
+          "id": "org_url",
+          "type": "regex",
+          "pattern": "(?<=<a href=\")[^\"]+",
+          "data": "field",
+          "fields": [
+            {
+              "name": "org_url",
+              "type": "string",
+              "index": 0
+            }
+          ]
+        },
+        {
+          "id": "tds",
+          "type": "regex",
+          "pattern": "<td[^>]*>.*?</td>",
+          "data": "field",
+          "fields": [
+            {
+              "name": "name",
+              "alias": "基金简称（CN）",
+              "type": "string",
+              "index": 0
+            },
+            {
+              "name": "org",
+              "alias": "管理机构",
+              "type": "string",
+              "index": 1
+            },
+            {
+              "name": "raising_begin",
+              "alias": "开始募集时间",
+              "type": "string",
+              "index": 2
+            },
+            {
+              "name": "amount",
+              "alias": "目标金额（人民币）",
+              "type": "string",
+              "index": 3
+            },
+            {
+              "name": "status",
+              "alias": "募集状态",
+              "type": "string",
+              "index": 4
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

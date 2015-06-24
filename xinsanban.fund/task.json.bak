@@ -1,0 +1,124 @@
+[
+{
+  "name":"好买基金新三板",
+  "id": "howbuy_xinsanban",
+  "url": "http://simu.howbuy.com/xinsanban.htm",
+  "extractors":[
+    {
+      "id":"recommend",
+      "parent": null,
+      "type": "css",
+      "pattern":".recommend tr:gt(0)"
+    },
+    {
+      "id":"tds",
+      "parent":"recommend",
+      "type":"regex",
+      "pattern":"<td[^>]+>.*?</td>"
+    }
+  ],
+  "fields": [
+    {
+      "name":"基金简称",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "name":"管理机构",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "name":"投资标的",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "name":"存续期限",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "name":"收益情况",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 4
+        }
+      ]
+    },
+    {
+      "name":"募集状态",
+      "type": "string",
+      "extractor":[
+        {
+          "id":"tds",
+          "index": 5
+        }
+      ]
+    }
+    ]
+},
+{
+  "name":"清科新三板基金",
+  "id": "pedata_xinsanban",
+  "url": "http://www.pedata.cn/neeq_do/neeq",
+  "extractors":[
+  ],
+  "fields": [
+    {
+      "name":"基金简称（CN）",
+      "type": "string",
+      "extractors":[
+      ]
+    },
+    {
+      "name":"管理机构",
+      "type": "string",
+      "extractors":[
+      ]
+    },
+    {
+      "name":"开始募集时间",
+      "type": "string",
+      "extractors":[
+      ]
+    },
+    {
+      "name":"目标金额（人民币）",
+      "type": "string",
+      "extractors":[
+      ]
+    },
+    {
+      "name":"募集状态",
+      "type": "string",
+      "extractors":[
+      ]
+    }
+    ]
+}
+]
+
+

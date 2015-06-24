@@ -1,0 +1,73 @@
+好买基金网字段说明：
+[
+  {
+    "name": "name",
+    "alias": "基金简称",
+    "type": "string",
+    "index": 0
+  },
+  {
+    "name": "org",
+    "alias": "管理机构",
+    "type": "string",
+    "index": 1
+  },
+  {
+    "name": "invest",
+    "alias": "投资标的",
+    "type": "string",
+    "index": 2
+  },
+  {
+    "name": "term",
+    "alias": "存续期限",
+    "type": "string",
+    "index": 3
+  },
+  {
+    "name": "profit",
+    "alias": "收益情况",
+    "type": "string",
+    "index": 4
+  },
+  {
+    "name": "status",
+    "alias": "募集状态",
+    "type": "string",
+    "index": 5
+  }
+]
+清科网字段说明：
+[
+  {
+    "name": "name",
+    "alias": "基金简称（CN）",
+    "type": "string",
+    "index": 0
+  },
+  {
+    "name": "org",
+    "alias": "管理机构",
+    "type": "string",
+    "index": 1
+  },
+  {
+    "name": "raising_begin",
+    "alias": "开始募集时间",
+    "type": "string",
+    "index": 2
+  },
+  {
+    "name": "amount",
+    "alias": "目标金额（人民币）",
+    "type": "string",
+    "index": 3
+  },
+  {
+    "name": "status",
+    "alias": "募集状态",
+    "type": "string",
+    "index": 4
+  }
+]
+
